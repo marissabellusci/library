@@ -5,6 +5,28 @@ let node;
 
 let myLibrary = [];
 
+if (localStorage.getItem('myLibrary')){
+    pastLibrary = JSON.parse(localStorage.getItem('myLibrary'));
+    for (let i=0; i<pastLibrary.length; i++) {
+        if (pastLibrary[i].read == true) {
+            readStatus = "I've read it";
+            
+        }
+    
+        if (pastLibrary[i].read == false){
+            readStatus = "I haven't read it";
+        
+        }
+
+        else readStatus = "error";
+
+        let creatingBook = new Book (titleCase(pastLibrary[i].title), titleCase(pastLibrary[i].author), pastLibrary[i].pages, pastLibrary[i].read)
+        addBookToLibrary(creatingBook);
+    }
+}
+
+
+
 /* This is the constructor! */
 
 function Book(title, author, pages, read){
@@ -80,6 +102,9 @@ function  addBookToLibrary(newBook){
  
 
 function display(){
+    
+    localStorage.setItem('myLibrary',JSON.stringify(myLibrary));
+
     console.log(myLibrary);
     document.getElementById('library').textContent = '';
     node = '';
@@ -88,7 +113,7 @@ function display(){
 
 
     for (i = 0; i < myLibrary.length; i++){
-        //console.log(myLibrary[i]);
+        console.log(myLibrary[i]);
             itemIndex = i;
 
             para = document.createElement("p");
