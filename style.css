@@ -26,6 +26,7 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    padding: 0;
 }
 
 li, p {
@@ -101,3 +102,48 @@ input, button, p {
 
 }
 
+
+@media only screen and (max-width:1000px){
+    #library{
+      flex-direction: column;
+    }
+
+    p{
+        width: 60vw;
+        height: 100vw;
+        margin: 50px auto;
+        font-size: 4rem;
+    }
+
+    button {
+        font-size: 5rem;
+        height: fit-content;
+    }
+
+    #remove {
+        font-size: 9rem;
+        width: 200px;
+    }
+
+    form {
+        flex-direction: column;
+        padding: 100px 0;
+        margin: 50px, 0;
+        transform: translateY(-1000px);
+    }
+
+    input {
+        font-size: 5rem;
+        width: 70vw;
+        height: 100px;
+        padding: 20px;
+    }
+
+    label {
+        font-size: 5rem;
+    }
+
+    h1{
+        font-size: 8rem;
+    }
+}
