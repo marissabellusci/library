@@ -245,9 +245,11 @@ function handleRemove(e){
     console.log(`This action ${e.target.id}s ${e.target.parentElement.id} at index ${e.target.parentElement.dataset.indexNumber}`)
     myLibrary.splice(e.target.parentElement.dataset.indexNumber);
     indexToRemove = e.target.parentElement.dataset.indexNumber;
+    bookToRemove = document.querySelector(`[data-index-number='${indexToRemove}'`);
     console.log(myLibrary);
-    itemIndex = myLibrary.indexOf(indexToRemove);
-    display();
+    console.log(bookToRemove);
+    document.getElementById('library').removeChild(bookToRemove);
+
    
 
 
